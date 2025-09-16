@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile Links | Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        
+        :root {
+            --primary: #fe7700;
+            --secondary: #5900ff;
+            --dark: #1d2b3a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #198754;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+        }
+
+        
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        
+        .profile {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .profile-title {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .profile-desc {
+            font-size: 14px;
+            max-width: 320px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        
+        .links {
+            padding: 20px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            background-color: var(--light);
+            text-decoration: none;
+            color: var(--dark);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .link-item:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .link-item:hover .link-icon {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .link-text {
+            flex: 1;
+        }
+
+        .link-title {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .link-desc {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        
+        .footer {
+            text-align: center;
+            color: var(--gray);
+            font-size: 14px;
+            margin-top: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        
+        @media (max-width: 500px) {
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .profile-name {
+                font-size: 20px;
+            }
+            
+            .link-item {
+                padding: 12px;
+            }
+        }
+
+        
+        .theme-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--gray);
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        
+        body.dark-theme {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: var(--light);
+        }
+
+        body.dark-theme .card {
+            background: #222831;
+        }
+
+        body.dark-theme .link-item {
+            background-color: #2d4059;
+            color: var(--light);
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        body.dark-theme .social-link {
+            background: #2d4059;
+            color: var(--light);
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-switch">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="profile">
+                <img src="img/M.FATHUR.jpg" alt="Profile Picture" class="profile-img">
+                <h1 class="profile-name">Muhammad Fathurrohman</h1>
+                <p class="profile-title">Electronical Engineering</p>
+                <p class="profile-desc">Designer dan developer web mewadahi passion dan bakat di bidang digital.</p>
+            </div>
+
+            <div class="links">
+                <a href="https://github.com/namapengguna" class="link-item" target="_blank">
+                    <div class="link-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="link-text">
+                        <div class="link-title">GitHub</div>
+                        <div class="link-desc">Lihat project dan kode saya</div>
+                    </div>
+                </a>
+
+                <a href="https://linkedin.com/in/namapengguna" class="link-item" target="_blank">
+                    <div class="link-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="link-text">
+                        <div class="link-title">LinkedIn</div>
+                        <div class="link-desc">Terhubung secara profesional</div>
+                    </div>
+                </a>
+
+                <a href="https://tiktok.com/@faronandara" class="link-item" target="_blank">
+                    <div class="link-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <div class="link-text">
+                        <div class="link-title">tiktok</div>
+                        <div class="link-desc">Siaran Live di kanal pribadi</div>
+                    </div>
+                </a>
+
+                <a href="https://instagram.com/fathurrym" class="link-item" target="_blank">
+                    <div class="link-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="link-text">
+                        <div class="link-title">instagram</div>
+                        <div class="link-desc">Follow untuk update terbaru</div>
+                    </div>
+                </a>
+
+                <a href="https://websiteanda.com/portfolio" class="link-item" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="link-text">
+                        <div class="link-title">Portfolio</div>
+                        <div class="link-desc">Kumpulan project terbaru</div>
+                    </div>
+                </a>
+
+                <a href="mailto:email@mfathur963.com" class="link-item">
+                    <div class="link-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="link-text">
+                        <div class="link-title">Email</div>
+                        <div class="link-desc">Hubungi untuk kolaborasi</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Muhammad Fathurrohman. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://instagram.com/fathurrym" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/namachannel" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://open.spotify.com/user/namapengguna" class="social-link" target="_blank"><i class="fab fa-spotify"></i></a>
+                <a href="https://tiktok.com/@namapengguna" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+            themeToggle.checked = true;
+        }
+        
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-theme');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.link-item');
+            links.forEach((link, index) => {
+                link.style.animationDelay = `${index * 0.1}s`;
+                link.classList.add('fade-in');
+            });
+        });
+    </script>
+</body>
+</html>
